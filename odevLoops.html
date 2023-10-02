@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    // "Tech Career" metnini tersten yazdır
+
+    var metin = "Tech Career";
+    const reverse = metin.split('').reverse().join('');
+    console.log(reverse);
+
+    // var numbers = [-22, 5, 11, 78, -4, -250, 35, 56, 11, 24, 77, 11] bu dizideki SADECE poizitif sayıların toplamını ekrana yaz.
+
+    var numbers = [-22, 5, 11, 78, -4, -250, 35, 56, 11, 24, 77, 11];
+    var positiveNumbers = [];
+
+    for (i = 0; i < numbers.length; i++) {
+        if (numbers[i] > 0) positiveNumbers.push(numbers[i])
+    }
+
+    var toplam = 0
+    for (i = 0; i < positiveNumbers.length; i++) {
+        toplam += positiveNumbers[i]
+    }
+
+    console.log(toplam);
+
+    // var numbers = [-22, 5, 11, 78, -4, -250, 35, 56, 11, 24, 77, 11] bu dizideki en büyük sayı hangisidir?
+
+    var numbers = [-22, 5, 11, 78, -4, -250, 35, 56, 11, 24, 77, 11]
+    var max = numbers[0];
+
+    for (var i = 0; i < numbers.length; i++) {
+        if (numbers[i] > max) {
+            max = numbers[i];
+        }
+    }
+    console.log(max)
+
+
+    //1-50 arası sayılar içinde 3’e veya 5’e tam bölünebilen sayıları console a yaz ve kaç adet olduğunu console yaz.
+
+    const sonuc = []
+    for (i = 0; i <= 50; i++) {
+        if (i % 3 == 0 || i % 5 == 0)
+            sonuc.push(i)
+    }
+
+    console.log(sonuc)
+    console.log(sonuc.length)
+
+</script>
+
+</html>
