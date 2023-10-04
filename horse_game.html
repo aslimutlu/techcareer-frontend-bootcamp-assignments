@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 300px;
+            height: 200px;
+            z-index: 1;
+        }
+
+        .area {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container-horses {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .finish {
+            width: 50px;
+            height: 700px;
+            background: black;
+            border: solid;
+            border-radius: 30px;
+            position: absolute;
+            right: 50px;
+
+        }
+
+        .button {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+
+        .start-button {
+            background-color: black;
+            color: aliceblue;
+            width: 200px;
+            height: 50px;
+            border-radius: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="button">
+        <button class="start-button" onclick="start()">START</button>
+    </div>
+
+    <div class="area">
+        <div class="container-horses">
+            <img id="horse1" src="https://www.hareketligifler.net/data/media/217/at-hareketli-resim-0240.gif" alt="">
+            <img id="horse2" src="https://www.hareketligifler.net/data/media/217/at-hareketli-resim-0063.gif" alt="">
+            <img id="horse3" src="https://www.hareketligifler.net/data/media/217/at-hareketli-resim-0279.gif" alt="">
+        </div>
+
+        <div class="finish">
+
+        </div>
+    </div>
+
+</body>
+<script>
+    function start() {
+
+        var total1 = 0;
+        var total2 = 0;
+        var total3 = 0;
+        var end = window.screen.width - 300;
+        var horse1 = document.querySelector("#horse1");
+        var horse2 = document.querySelector("#horse2");
+        var horse3 = document.querySelector("#horse3");
+
+        var interval = setInterval(() => {
+
+            //0 ile 200 arasında bir sayı üretiyor
+            var random1 = Math.random() * 200
+            var random2 = Math.random() * 200
+            var random3 = Math.random() * 200
+
+
+            total1 += random1;
+            total2 += random2;
+            total3 += random3;
+
+            horse1.style.marginLeft = total1 + "px"
+            horse2.style.marginLeft = total2 + "px"
+            horse3.style.marginLeft = total3 + "px"
+
+            if (total1 >= end) {
+                reset("GECE", interval)
+            }
+
+            if (total2 >= end) {
+                reset("KAHVE", interval)
+            }
+
+            if (total3 >= end) {
+                reset("MUZ", interval)
+            }
+
+        }, 500);
+
+
+        function reset(horse, interval) {
+            alert("Yarışın Kazananı: " + horse);
+
+
+            total1 = 0;
+            total2 = 0;
+            total3 = 0;
+
+            horse1.style.marginLeft = 0;
+            horse2.style.marginLeft = 0;
+            horse3.style.marginLeft = 0;
+
+
+            clearInterval(interval)
+
+
+        }
+
+    }
+</script>
+
+</html>
